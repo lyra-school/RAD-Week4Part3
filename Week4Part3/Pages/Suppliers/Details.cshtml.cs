@@ -27,8 +27,8 @@ namespace Week4Part3.Pages.Suppliers
             {
                 return NotFound();
             }
-
-            var supplier = await _context.Supplier.FirstOrDefaultAsync(m => m.ID == id);
+            // https://stackoverflow.com/questions/42327515/ef-core-returns-null-relations-until-direct-access
+            var supplier = await _context.Supplier.Include(p => p.Products).FirstOrDefaultAsync(m => m.ID == id);
             if (supplier == null)
             {
                 return NotFound();

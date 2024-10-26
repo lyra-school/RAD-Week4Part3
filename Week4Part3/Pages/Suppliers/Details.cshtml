@@ -29,6 +29,15 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Supplier.SupplierAddressLine2)
         </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.Supplier.Products)
+        </dt>
+        @foreach(var item in Model.Supplier.Products)
+        {
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.Description)
+            </dd>
+        }
     </dl>
 </div>
 <div>
